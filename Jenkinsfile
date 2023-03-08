@@ -2,7 +2,7 @@ pipeline{
     agent { JDK_17 }
     satges {
         stage {
-            steps ('vcs') {
+            steps ('vcs_1') {
                 git url: 'https://github.com/Sangojupavan/spring-petclinic.git',
                     branch: 'declarative'
             }
