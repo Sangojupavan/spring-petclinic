@@ -1,5 +1,5 @@
 pipeline{
-    agent { JDK_17 }
+    agent { label JDK_17 }
     satges {
         stage {
             steps ('vcs_1') {
