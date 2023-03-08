@@ -14,7 +14,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                archiveArtifacts artifacts: '**/target/gameoflife.war',                    
+                archiveArtifacts artifacts: "**/target/gameoflife.war",                    
                                  onlyIfSuccessful: true                
             }
         }
