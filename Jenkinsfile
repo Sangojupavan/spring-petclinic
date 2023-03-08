@@ -15,8 +15,7 @@ pipeline{
         stage('build') {
             steps  {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',                    
-                junit testResults: '**/surefire-reports/TEST-*.xml',
-                      onlyIFSuccessfull: true                
+                                 onlyIFSuccessfull: true                
             }
         }
     }
