@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
     agent { label 'JDK_17' }
     stages {
         stage('vcs') {
@@ -15,7 +15,7 @@ pipeline{
         stage('build') {
             steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',                    
-                                 onlyIFSuccessfull: true                
+                                 onlyIfSuccessful: true                
             }
         }
     }
