@@ -14,7 +14,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                archiveArtifacts artifacts: '/remote/workspace/spc-pipeline/target/ spring-petclinic-3.0.0-SNAPSHOT.jar',
+                archiveArtifacts artifacts: '**/target/*.jar',
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/*.xml'                    
                                                  
