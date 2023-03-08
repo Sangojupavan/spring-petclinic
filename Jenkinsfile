@@ -1,19 +1,19 @@
 pipeline{
-    agent { JDK_17 }
-    satges {
+    agent { label 'JDK_17' }
+    stages {
         stage('vcs') {
-            steps  {
+            steps {
                 git url: 'https://github.com/Sangojupavan/spring-petclinic.git',
                     branch: 'declarative'
             }
         }
         stage('pacakge') {
-            steps  {
+            steps {
                 sh 'mvn package'
             }
         }
         stage('build') {
-            steps  {
+            steps {
                 archiveArtifacts artifacts: '**/target/gameoflife.war',                    
                                  onlyIFSuccessfull: true                
             }
