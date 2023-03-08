@@ -14,7 +14,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                archiveArtifacts artifacts: '**/*.war',                    
+                archiveArtifacts artifacts: 'target/*.war',                    
                                  onlyIfSuccessful: true                
             }
         }
