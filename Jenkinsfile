@@ -7,7 +7,7 @@ pipeline {
                     branch: 'declarative'
             }
         }
-        stage('pacakge') {
+        stage('pacakge_1') {
             steps {
                 sh 'mvn package'
             }
