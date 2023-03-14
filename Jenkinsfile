@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'JDK_17' }
-    triggers { corn ('* * * * *')}
+    triggers { pollSCM('* * * * *') }
     stages {
         stage('vcs') {
             steps {
