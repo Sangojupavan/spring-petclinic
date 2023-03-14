@@ -13,6 +13,14 @@ pipeline {
                 sh 'mvn package'
             }
         }
+          stage('sonar analysis') {
+            steps {
+                withSonarQubeEnv('SONAR_CLOUD') {
+                sh 'mvn clean package sonar:sonar -Dsonar.organization=pavans'
+                }
+            }
+
+        }
         stage('build') {
             steps {
                 archiveArtifacts artifacts: '**/target/*.jar',
@@ -21,13 +29,6 @@ pipeline {
                                                  
             }
         }
-        stage('sonar analysis') {
-            steps {
-                withSonarQubeEnv('SONAR_CLOUD') {
-                sh 'mvn clean package sonar:sonar -Dsonar.organization=pavans'
-                }
-            }
-
-        }
+      
     }
 }
