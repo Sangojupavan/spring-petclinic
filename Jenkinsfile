@@ -13,12 +13,12 @@ pipeline {
                 sh 'mvn package'
             }
         }
-          stage('sonar analysis') {
+        stage("build & SonarQube analysis") {
+            agent any
             steps {
-                withSonarQubeEnv('SONAR_CLOUD') {
-                sh 'mvn clean verify sonar:sonar -Dsonar.organization=springpetclinic143 -Dsonar.login=2f9590ad4f09dd82feb0e369b767e73e39a06d69'
-                }
-            }
+              withSonarQubeEnv('My SonarQube Server') {
+                sh 'mvn clean verify sonar:sonar'
+              }
 
         }
         stage('build') {
