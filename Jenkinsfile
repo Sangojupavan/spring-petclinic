@@ -16,7 +16,7 @@ pipeline {
         stage("build & SonarQube analysis") {
             steps {
               withSonarQubeEnv('sonar') {
-                sh 'mvn package verify sonar:sonar -Dsonar.organization=devops8 -Dsonar.key=devops8_spring-petclinic -Dsonar.projectName=any'
+                sh 'mvn clean package sonar:sonar -Dsonar.organization=devops8 -Dsonar.projectKey=devops8_spring-petclinic -Dsonar.projectName=any'
               }
                 
             
