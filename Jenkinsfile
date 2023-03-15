@@ -14,12 +14,13 @@ pipeline {
             }
         }
         stage("build & SonarQube analysis") {
-            agent any
             steps {
-              withSonarQubeEnv('My SonarQube Server') {
-                sh 'mvn clean verify sonar:sonar'
+              withSonarQubeEnv('sonarqube') {
+                sh 'mvn package verify sonar:sonar -Dsonar.organization=devops8 -Dsonar.key=devops8_spring-petclinic -Dsonar.name=any'
               }
-
+                
+            
+            }    
         }
         stage('build') {
             steps {
